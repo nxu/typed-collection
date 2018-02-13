@@ -1,0 +1,22 @@
+{
+  "name": "nxu/typed-collection",
+  "description": "Laravel collections with strict type support.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Zsolt Fekete (nxu)",
+      "email": "nxu@nxu.hu",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.1",
+    "illuminate/support": "5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nxu\\TypedCollection\\": "src"
+    }
+  }
+}
