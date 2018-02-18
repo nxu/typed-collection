@@ -9,6 +9,8 @@ abstract class AbstractTypedCollection extends Collection
 {
     public function __construct($items = [])
     {
+        $items = $this->getArrayableItems($items);
+
         foreach ($items as $item) {
             if (! $this->isTypeValid($item)) {
                 throw new InvalidTypeException();

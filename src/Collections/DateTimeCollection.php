@@ -6,5 +6,5 @@ use DateTime;
 
 class DateTimeCollection extends TypedCollection
 {
-    protected $valueType = DateTime::class;
+    protected $objectType = DateTime::class;
 }
