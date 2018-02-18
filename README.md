@@ -34,7 +34,7 @@ Not using composer? Too bad.
 The package provides built in collections for all scalar 
 types of PHP (other than `null` of course):
 
-- `ArrayCollection˙
+- `ArrayCollection`
 - `BooleanCollection`
 - `CallableCollection`
 - `FloatCollection`
