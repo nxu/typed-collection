@@ -20,7 +20,16 @@ It works by creating collection classes for each type and
 specifying the types of the elements. This will be enforced,
 and you can be sure the collection only contains elements
 with the specified type.
- 
+
+### Installation
+Use `composer` to install the package. 
+
+```sh
+composer require nxu/typed-collection
+```
+
+Not using composer? Too bad. 
+
 ### Built-in collections
 The package provides built in collections for all scalar 
 types of PHP (other than `null` of course):
