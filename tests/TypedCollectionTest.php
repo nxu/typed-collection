@@ -1,17 +1,17 @@
 <?php
 
-use Nxu\TypedCollection\Collections\DateTimeCollection;
+use Nxu\TypedCollection\Collections\DateTimeInterfaceCollection;
 use PHPUnit\Framework\TestCase;
 
 class TestTypedCollection extends TestCase
 {
     public function testIfCollectionCanBeInitializedWithRightTypes()
     {
-        $fromArray = new DateTimeCollection([new DateTime(), new DateTime()]);
-        $fromCollection = new DateTimeCollection(collect([new DateTime(), new DateTime()]));
+        $fromArray = new DateTimeInterfaceCollection([new DateTime(), new DateTime()]);
+        $fromCollection = new DateTimeInterfaceCollection(collect([new DateTime(), new DateTime()]));
 
-        $this->assertInstanceOf(DateTimeCollection::class, $fromArray);
-        $this->assertInstanceOf(DateTimeCollection::class, $fromCollection);
+        $this->assertInstanceOf(DateTimeInterfaceCollection::class, $fromArray);
+        $this->assertInstanceOf(DateTimeInterfaceCollection::class, $fromCollection);
     }
 
     /**
@@ -19,12 +19,12 @@ class TestTypedCollection extends TestCase
      */
     public function testIfCollectionInitializationFailsWithWrongType()
     {
-        new DateTimeCollection(['hello', 'world']);
+        new DateTimeInterfaceCollection(['hello', 'world']);
     }
 
     public function testIfPushWorksWithRightType()
     {
-        $collection = new DateTimeCollection();
+        $collection = new DateTimeInterfaceCollection();
         $collection->push(new DateTime());
 
         $this->assertEquals(1, $collection->count());
@@ -35,13 +35,13 @@ class TestTypedCollection extends TestCase
      */
     public function testIfPushFailsWithWrongType()
     {
-        $collection = new DateTimeCollection();
+        $collection = new DateTimeInterfaceCollection();
         $collection->push(['omae wa mou shindeiru']);
     }
 
     public function testIfPutWorksWithRightType()
     {
-        $collection = new DateTimeCollection();
+        $collection = new DateTimeInterfaceCollection();
         $collection->put(1, new DateTime());
 
         $this->assertEquals(1, $collection->count());
@@ -52,13 +52,13 @@ class TestTypedCollection extends TestCase
      */
     public function testIfPutFailsWithWrongType()
     {
-        $collection = new DateTimeCollection();
+        $collection = new DateTimeInterfaceCollection();
         $collection->put(1, ['omae wa mou shindeiru']);
     }
 
     public function testIfOffsetSetWorksWithRightType()
     {
-        $collection = new DateTimeCollection();
+        $collection = new DateTimeInterfaceCollection();
         $collection->offsetSet(1, new DateTime());
 
         $this->assertEquals(1, $collection->count());
@@ -69,7 +69,7 @@ class TestTypedCollection extends TestCase
      */
     public function testIfOffsetSetFailsWithWrongType()
     {
-        $collection = new DateTimeCollection();
+        $collection = new DateTimeInterfaceCollection();
         $collection->offsetSet(1, ['omae wa mou shindeiru']);
     }
 }
