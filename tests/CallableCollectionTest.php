@@ -8,7 +8,8 @@ class CallableCollectionTest extends TestCase
     public function testIfCallableCanBeAdded()
     {
         $collection = new CallableCollection();
-        $collection->push(function () {});
+        $collection->push(function () {
+        });
         $this->assertEquals(1, $collection->count());
     }
 
