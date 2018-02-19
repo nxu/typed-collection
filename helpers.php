@@ -30,7 +30,7 @@ if (! function_exists('collect_float')) {
 
 
 if (! function_exists('collect_integer')) {
-    function collect_float($value = null)
+    function collect_integer($value = null)
     {
         return new \Nxu\TypedCollection\Collections\IntegerCollection($value);
     }
