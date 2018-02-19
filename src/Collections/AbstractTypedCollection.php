@@ -11,10 +11,8 @@ abstract class AbstractTypedCollection extends Collection
     {
         $items = $this->getArrayableItems($items);
 
-        foreach ($items as $item) {
-            if (! $this->isTypeValid($item)) {
-                throw new InvalidTypeException();
-            }
+        foreach ($items as $value) {
+            $this->validateType($value);
         }
 
         parent::__construct($items);
@@ -22,29 +20,27 @@ abstract class AbstractTypedCollection extends Collection
 
     public function push($value)
     {
-        if (! $this->isTypeValid($value)) {
-            throw new InvalidTypeException();
-        }
-
+        $this->validateType($value);
         return parent::push($value);
     }
 
     public function put($key, $value)
     {
-        if (! $this->isTypeValid($value)) {
-            throw new InvalidTypeException();
-        }
-
+        $this->validateType($value);
         return parent::put($key, $value);
     }
 
     public function offsetSet($key, $value)
     {
+        $this->validateType($value);
+        parent::offsetSet($key, $value);
+    }
+
+    protected function validateType($value)
+    {
         if (! $this->isTypeValid($value)) {
             throw new InvalidTypeException();
         }
-
-        parent::offsetSet($key, $value);
     }
 
     abstract protected function isTypeValid($value): bool;
