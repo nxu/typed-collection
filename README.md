@@ -42,7 +42,7 @@ types of PHP (other than `null` of course):
 - `ResourceCollection`
 - `StringCollection`
 
-Also, there is a `DateTimeCollection` to be used.
+Also, there is a `DateTimeInterfaceCollection` to be used.
 
 ### Custom collection classes
 For any other type, create a class and extend `TypedCollection`.
@@ -58,6 +58,14 @@ That's all, adding any other types will throw an `InvalidTypeException`.
 ### Even more customization
 If you wish to customize the collection even more, you can override
 the `isTypeValid($value): bool` method and add any validation rule.
+
+### Helpers
+Similarly to Laravel's `collect()` method, this package provides
+easy to use helper methods:
+
+- `collect_array()`
+- `collect_bool()`
+- ...
 
 ## License
 This package is open source software licensed under the [MIT License](https://opensource.org/licenses/MIT).
