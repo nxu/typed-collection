@@ -38,6 +38,46 @@ abstract class AbstractTypedCollection extends Collection
         parent::offsetSet($key, $value);
     }
 
+    public function keys()
+    {
+        return collect($this)->keys();
+    }
+
+    public function pluck($value, $key = null)
+    {
+        return collect($this)->pluck($value, $key);
+    }
+
+    public function diffKeys($items)
+    {
+        return collect($this)->diffKeys($items);
+    }
+
+    public function diffKeysUsing($items, callable $callback)
+    {
+        return collect($this)->diffKeysUsing($items, $callback);
+    }
+
+    public function groupBy($groupBy, $preserveKeys = false)
+    {
+        return collect($this)->groupBy($groupBy, $preserveKeys);
+    }
+
+    public function map(callable $callback)
+    {
+        return collect($callback)->map($callback);
+    }
+
+    public function mapToDictionary(callable $callback)
+    {
+        return collect($this)->mapToDictionary($callback);
+    }
+
+    public function mapWithKeys(callable $callback)
+    {
+        return collect($this)->mapWithKeys($callback);
+    }
+
     protected function validateType($value)
     {
         if (! $this->isTypeValid($value)) {
