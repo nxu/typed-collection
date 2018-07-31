@@ -65,7 +65,7 @@ abstract class AbstractTypedCollection extends Collection
 
     public function map(callable $callback)
     {
-        return collect($callback)->map($callback);
+        return collect($this)->map($callback);
     }
 
     public function mapToDictionary(callable $callback)
