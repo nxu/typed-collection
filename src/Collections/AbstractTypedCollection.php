@@ -18,11 +18,14 @@ abstract class AbstractTypedCollection extends Collection
         parent::__construct($items);
     }
 
-    public function push($value)
+    public function push(...$value)
     {
-        $this->validateType($value);
+        foreach ($value as $item) {
+            $this->validateType($item);
+            parent::push($item);
+        }
 
-        return parent::push($value);
+        return $this;
     }
 
     public function put($key, $value)
