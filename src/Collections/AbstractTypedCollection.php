@@ -18,7 +18,7 @@ abstract class AbstractTypedCollection extends Collection
         parent::__construct($items);
     }
 
-    public function push($value)
+    public function push(...$value)
     {
         $this->validateType($value);
 
