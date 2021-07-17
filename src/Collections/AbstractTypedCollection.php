@@ -20,9 +20,12 @@ abstract class AbstractTypedCollection extends Collection
 
     public function push(...$value)
     {
-        $this->validateType($value);
+        foreach ($value as $item) {
+            $this->validateType($item);
+            parent::push($item);
+        }
 
-        return parent::push($value);
+        return $this;
     }
 
     public function put($key, $value)
