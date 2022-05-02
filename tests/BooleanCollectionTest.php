@@ -1,6 +1,7 @@
 <?php
 
 use Nxu\TypedCollection\Collections\BooleanCollection;
+use Nxu\TypedCollection\Exceptions\InvalidTypeException;
 use PHPUnit\Framework\TestCase;
 
 class BooleanCollectionTest extends TestCase
@@ -13,11 +14,9 @@ class BooleanCollectionTest extends TestCase
         $this->assertEquals(2, $collection->count());
     }
 
-    /**
-     * @expectedException \Nxu\TypedCollection\Exceptions\InvalidTypeException
-     */
     public function testIfOnlyBooleanCanBeAdded()
     {
+        $this->expectException(InvalidTypeException::class);
         $collection = new BooleanCollection();
         $collection->push('this ain\'t no boolean');
     }

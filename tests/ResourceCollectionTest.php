@@ -1,6 +1,7 @@
 <?php
 
 use Nxu\TypedCollection\Collections\ResourceCollection;
+use Nxu\TypedCollection\Exceptions\InvalidTypeException;
 use PHPUnit\Framework\TestCase;
 
 class ResourceCollectionTest extends TestCase
@@ -12,11 +13,9 @@ class ResourceCollectionTest extends TestCase
         $this->assertEquals(1, $collection->count());
     }
 
-    /**
-     * @expectedException \Nxu\TypedCollection\Exceptions\InvalidTypeException
-     */
     public function testIfOnlyResourceCanBeAdded()
     {
+        $this->expectException(InvalidTypeException::class);
         $collection = new ResourceCollection();
         $collection->push('this ain\'t no resource');
     }

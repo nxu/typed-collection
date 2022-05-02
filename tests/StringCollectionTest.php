@@ -1,6 +1,7 @@
 <?php
 
 use Nxu\TypedCollection\Collections\StringCollection;
+use Nxu\TypedCollection\Exceptions\InvalidTypeException;
 use PHPUnit\Framework\TestCase;
 
 class StringCollectionTest extends TestCase
@@ -12,11 +13,9 @@ class StringCollectionTest extends TestCase
         $this->assertEquals(1, $collection->count());
     }
 
-    /**
-     * @expectedException \Nxu\TypedCollection\Exceptions\InvalidTypeException
-     */
     public function testIfOnlyStringCanBeAdded()
     {
+        $this->expectException(InvalidTypeException::class);
         $collection = new StringCollection();
         $collection->push(1234);
     }

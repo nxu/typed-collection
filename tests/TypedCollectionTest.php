@@ -1,6 +1,7 @@
 <?php
 
 use Nxu\TypedCollection\Collections\DateTimeInterfaceCollection;
+use Nxu\TypedCollection\Exceptions\InvalidTypeException;
 use PHPUnit\Framework\TestCase;
 
 class TestTypedCollection extends TestCase
@@ -14,11 +15,9 @@ class TestTypedCollection extends TestCase
         $this->assertInstanceOf(DateTimeInterfaceCollection::class, $fromCollection);
     }
 
-    /**
-     * @expectedException  Nxu\TypedCollection\Exceptions\InvalidTypeException
-     */
     public function testIfCollectionInitializationFailsWithWrongType()
     {
+        $this->expectException(InvalidTypeException::class);
         new DateTimeInterfaceCollection(['hello', 'world']);
     }
 
@@ -30,11 +29,9 @@ class TestTypedCollection extends TestCase
         $this->assertEquals(1, $collection->count());
     }
 
-    /**
-     * @expectedException \Nxu\TypedCollection\Exceptions\InvalidTypeException
-     */
     public function testIfPushFailsWithWrongType()
     {
+        $this->expectException(InvalidTypeException::class);
         $collection = new DateTimeInterfaceCollection();
         $collection->push(['omae wa mou shindeiru']);
     }
@@ -47,11 +44,9 @@ class TestTypedCollection extends TestCase
         $this->assertEquals(1, $collection->count());
     }
 
-    /**
-     * @expectedException \Nxu\TypedCollection\Exceptions\InvalidTypeException
-     */
     public function testIfPutFailsWithWrongType()
     {
+        $this->expectException(InvalidTypeException::class);
         $collection = new DateTimeInterfaceCollection();
         $collection->put(1, ['omae wa mou shindeiru']);
     }
@@ -64,11 +59,9 @@ class TestTypedCollection extends TestCase
         $this->assertEquals(1, $collection->count());
     }
 
-    /**
-     * @expectedException \Nxu\TypedCollection\Exceptions\InvalidTypeException
-     */
     public function testIfOffsetSetFailsWithWrongType()
     {
+        $this->expectException(InvalidTypeException::class);
         $collection = new DateTimeInterfaceCollection();
         $collection->offsetSet(1, ['omae wa mou shindeiru']);
     }

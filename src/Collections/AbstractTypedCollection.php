@@ -18,11 +18,11 @@ abstract class AbstractTypedCollection extends Collection
         parent::__construct($items);
     }
 
-    public function push($value)
+    public function push(...$values)
     {
-        $this->validateType($value);
+        $this->validateTypes(...$values);
 
-        return parent::push($value);
+        return parent::push($values);
     }
 
     public function put($key, $value)
@@ -32,7 +32,7 @@ abstract class AbstractTypedCollection extends Collection
         return parent::put($key, $value);
     }
 
-    public function offsetSet($key, $value)
+    public function offsetSet($key, $value): void
     {
         $this->validateType($value);
         parent::offsetSet($key, $value);
@@ -82,6 +82,12 @@ abstract class AbstractTypedCollection extends Collection
     {
         if (! $this->isTypeValid($value)) {
             throw new InvalidTypeException();
+        }
+    }
+
+    protected function validateTypes(...$values) {
+        foreach ($values as $value) {
+            $this->validateType($value);
         }
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use Nxu\TypedCollection\Collections\ArrayCollection;
+use Nxu\TypedCollection\Exceptions\InvalidTypeException;
 use PHPUnit\Framework\TestCase;
 
 class ArrayCollectionTest extends TestCase
@@ -12,11 +13,9 @@ class ArrayCollectionTest extends TestCase
         $this->assertEquals(1, $collection->count());
     }
 
-    /**
-     * @expectedException \Nxu\TypedCollection\Exceptions\InvalidTypeException
-     */
     public function testIfOnlyArrayCanBeAdded()
     {
+        $this->expectException(InvalidTypeException::class);
         $collection = new ArrayCollection();
         $collection->push('this ain\'t no array');
     }

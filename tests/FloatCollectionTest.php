@@ -1,6 +1,7 @@
 <?php
 
 use Nxu\TypedCollection\Collections\FloatCollection;
+use Nxu\TypedCollection\Exceptions\InvalidTypeException;
 use PHPUnit\Framework\TestCase;
 
 class FloatCollectionTest extends TestCase
@@ -12,11 +13,9 @@ class FloatCollectionTest extends TestCase
         $this->assertEquals(1, $collection->count());
     }
 
-    /**
-     * @expectedException \Nxu\TypedCollection\Exceptions\InvalidTypeException
-     */
     public function testIfOnlyFloatCanBeAdded()
     {
+        $this->expectException(InvalidTypeException::class);
         $collection = new FloatCollection();
         $collection->push('te beütöd, én majd játszom vele');
     }
