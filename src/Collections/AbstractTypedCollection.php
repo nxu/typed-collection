@@ -85,7 +85,8 @@ abstract class AbstractTypedCollection extends Collection
         }
     }
 
-    protected function validateTypes(...$values) {
+    protected function validateTypes(...$values)
+    {
         foreach ($values as $value) {
             $this->validateType($value);
         }
