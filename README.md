@@ -1,4 +1,3 @@
-[![Travis](https://img.shields.io/travis/nXu/typed-collection.svg?style=flat-square)](https://travis-ci.org/nXu/typed-collection)
 [![Packagist](https://img.shields.io/packagist/v/nxu/typed-collection.svg?style=flat-square)](https://packagist.org/packages/nXu/typed-collection)
 [![StyleCI](https://styleci.io/repos/121439464/shield?branch=master)](https://styleci.io/repos/121439464)
 
