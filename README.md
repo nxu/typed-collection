@@ -1,3 +1,10 @@
+# This package is abandoned
+
+Honestly - just use PHPStan at this point.
+
+----
+
+
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua)
 
 [![Packagist](https://img.shields.io/packagist/v/nxu/typed-collection.svg?style=flat-square)](https://packagist.org/packages/nXu/typed-collection)
